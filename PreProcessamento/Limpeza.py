@@ -32,7 +32,7 @@ def main():
             df[campo].fillna(mode, inplace=True)
 
     # Gera um arquivo csv com os todos os dados preenchidos pelo algoritmo
-    df.to_csv('dados.csv')
+    df.to_csv('../Dataset/horse-colic-clean.data', index=False)
 
     print(df.info())
 
