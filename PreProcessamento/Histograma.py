@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-input_file = '../Dataset/horse-colic-clean.data'  # Importação dos Dados
+input_file = 'Dataset/horse-colic-clean.data'  # Importação dos Dados
 df = pd.read_csv(input_file, usecols=['Temperatura Retal', 'Pulso'])
 temperaturas = df['Temperatura Retal'].tolist()
 pulso = df['Pulso'].tolist()
