@@ -6,7 +6,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 def main():
     # Faz a leitura do arquivo
-    input_file = '../Dataset/horse-colic-clean.data'
+    input_file = './Dataset/horse-colic-clean.data'
     df = pd.read_csv(input_file)
     columns = list(df.columns)
     target = 'Resultado'
@@ -32,11 +32,11 @@ def main():
     # Mix-Max normalization
     x_minmax = MinMaxScaler().fit_transform(x)
     normalized2Df = pd.DataFrame(data=x_minmax, columns=columns)
-    normaizeld2Df = pd.concat([normalized2Df, df[[target]]], axis=1)
+    normalized2Df = pd.concat([normalized2Df, df[[target]]], axis=1)
     ShowInformationDataFrame(normalized2Df, "Dataframe Min-Max Normalized")
 
     normalized1Df.to_csv(
-        '../Dataset/horse-colic-clean-normalized.data', index=False)
+        './Dataset/horse-colic-clean-normalized.data', index=False)
 
 
 def ShowInformationDataFrame(df, message=""):
