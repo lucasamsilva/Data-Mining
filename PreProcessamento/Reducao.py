@@ -7,16 +7,10 @@ import matplotlib.pyplot as plt
 
 def main():
     # Faz a leitura do arquivo
-    input_file = 'Dataset/horse-colic-clean-normalized.data'
+    input_file = '../Dataset/horse-colic-clean-normalized.data'
     df = pd.read_csv(input_file)
     columns = list(df.columns)
     target = 'Resultado'
-    index = -1
-    for i, column in enumerate(columns):
-        if column == target:
-            index = i
-            break
-    del(columns[index])
 
     # Separating out the columns
     x = df.loc[:, columns].values
@@ -54,8 +48,8 @@ def VisualizePcaProjection(finalDf, targetColumn):
     ax.set_xlabel('Principal Component 1', fontsize=15)
     ax.set_ylabel('Principal Component 2', fontsize=15)
     ax.set_title('2 component PCA', fontsize=20)
-    targets = [0, 1, ]
-    colors = ['r', 'g']
+    targets = [1, 2, 3]
+    colors = ['r', 'g', 'b']
     for target, color in zip(targets, colors):
         indicesToKeep = finalDf[targetColumn] == target
         ax.scatter(finalDf.loc[indicesToKeep, 'principal component 1'],
