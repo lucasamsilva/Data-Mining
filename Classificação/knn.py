@@ -8,6 +8,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import f1_score
 from sklearn.metrics import confusion_matrix
+from sklearn.model_selection import cross_val_score
 from sklearn.neighbors import KNeighborsClassifier
 from collections import Counter
 
@@ -95,8 +96,7 @@ def plot_confusion_matrix(cm, classes,
 
 
 def main():
-    # Load iris data and store in dataframe
-    input_file = '../Dataset/horse-colic-clean.data'
+    input_file = './Dataset/horse-colic-clean.data'
     data = pd.read_csv(input_file)
     df = pd.DataFrame(data=data, columns=data.columns)
     df['target'] = data['Resultado']
@@ -107,9 +107,9 @@ def main():
     y = df.target
     print("Total samples: {}".format(X.shape[0]))
 
-    # Split the data - 75% train, 25% test
+    # Split the data - 70% train, 30% test
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.25, random_state=1)
+        X, y, test_size=0.3, random_state=1)
     print("Total train samples: {}".format(X_train.shape[0]))
     print("Total test  samples: {}".format(X_test.shape[0]))
 
@@ -152,6 +152,10 @@ def main():
                           "Confusion Matrix - K-NN sklearn")
     plot_confusion_matrix(cm, ['Viveu', 'Morreu', 'Eutanasia'], True,
                           "Confusion Matrix - K-NN sklearn normalized")
+    cross_validation = cross_val_score(knn, X, y, cv=10, scoring='accuracy')
+    print(cross_validation)
+    print("Média cross validation = " + str(cross_validation.mean()) + "\n")
+
     plt.show()
 
 

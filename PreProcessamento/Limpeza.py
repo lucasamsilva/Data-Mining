@@ -12,7 +12,7 @@ def main():
     continuousData = ['Temperatura Retal', 'Tempo de Preenchimento Capilar', 'Hematócrito',
                       'Ph do Refluxo Nasosgástrico', 'Proteína Total', 'Ritmo Respiratório', 'Proteína Paracentese', 'Pulso']  # Colunas com dados numéricos contínuos
 
-    input_file = '../Dataset/horse-colic.data'  # Importação dos Dados
+    input_file = './Dataset/horse-colic.data'  # Importação dos Dados
     df = pd.read_csv(input_file, delim_whitespace=True,
                      names=collumns, usecols=useCollums, na_values='?')
 
@@ -32,7 +32,7 @@ def main():
             df[campo].fillna(mode, inplace=True)
 
     # Gera um arquivo csv com os todos os dados preenchidos pelo algoritmo
-    df.to_csv('../Dataset/horse-colic-clean.data', index=False)
+    df.to_csv('./Dataset/horse-colic-clean.data', index=False)
 
     print(df.info())
 

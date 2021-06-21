@@ -2,7 +2,7 @@ import pandas as pd
 import statistics
 import matplotlib.pyplot as plt
 
-input_file = 'Dataset/horse-colic-clean.data'  # Importação dos Dados
+input_file = './Dataset/horse-colic-clean.data'  # Importação dos Dados
 df = pd.read_csv(input_file)
 columns = list(df.columns)
 

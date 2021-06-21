@@ -67,8 +67,8 @@ def plot_samples(projected, labels, title):
 
 def main():
     # Load dataset Digits
-    k = 2
-    input_file = '../Dataset/horse-colic-clean.data'
+    k = 7
+    input_file = './Dataset/horse-colic-clean.data'
     df = pd.read_csv(input_file)
     columns = list(df.columns)
     target = 'Resultado'
