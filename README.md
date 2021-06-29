@@ -16,7 +16,7 @@ dados.
 
 Nº aulas semanais: 4 | Total de aulas: 76 | Total de horas: 63,3
 
-Professora: Dr. Murilo Varges da Silva
+Professor: Dr. Murilo Varges da Silva
 
 Aluno: Lucas Andrei Moraes da Silva
 
